@@ -1,9 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home";
 import React, { useEffect, useState } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import AllProducts from "./routes/AllProducts";
+import SingleProduct from "./routes/SingleProduct";
 
 function App() {
    const API_URL = "http://localhost:3500/items";
@@ -36,7 +37,20 @@ function App() {
             />
             <Route element={<Navbar />}>
                <Route path="products" element={<AllProducts items={items} />} />
+               <Route
+                  path=":invoiceId"
+                  element={<SingleProduct items={items} />}
+               />
             </Route>
+            <Route
+               path="*"
+               element={
+                  <main style={{ padding: "1rem" }}>
+                     <p>There's nothing here! </p>
+                     <Link to="/">Go back to homepage</Link>
+                  </main>
+               }
+            />
          </Routes>
       </>
    );
