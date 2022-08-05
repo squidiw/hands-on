@@ -1,4 +1,5 @@
 import React from "react";
+import "./header.scss";
 import Button from "../Button/Button";
 import Title from "../Title/Title";
 

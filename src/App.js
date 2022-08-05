@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import About from "./components/About/About";
-import Header from "./components/Header/Header";
-import "./components/Header/header.scss";
-import Products from "./components/Products/Products";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home/Home";
+import React, { useEffect, useState } from "react";
+
+import Navbar from "./components/Navbar/Navbar";
+import AllProducts from "./routes/AllProducts";
 
 function App() {
    const API_URL = "http://localhost:3500/items";
@@ -26,17 +27,17 @@ function App() {
          (async () => await fetchItems())();
       }, 2000);
    }, []);
-
    return (
       <>
-         <Header
-            logo="logo here"
-            title="Amazing furniture for amazing people"
-            btnText="shop"
-         />
-         <About />
-
-         {!fetchError && <Products items={items} />}
+         <Routes>
+            <Route
+               path="/"
+               element={<Home items={items} fetchError={fetchError} />}
+            />
+            <Route element={<Navbar />}>
+               <Route path="products" element={<AllProducts items={items} />} />
+            </Route>
+         </Routes>
       </>
    );
 }
