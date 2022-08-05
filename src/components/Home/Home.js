@@ -1,8 +1,18 @@
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import About from "../About/About";
 import Products from "../Products/Products";
+import { fetchItems } from "../apiRequest/apiRequest";
 
-const Home = ({ items, fetchError }) => {
+const Home = () => {
+   const [items, setItems] = useState([]);
+   const [fetchError, setFetchError] = useState(null);
+
+   useEffect(() => {
+      fetchItems().then(response => {
+         console.log(response);
+      });
+   }, []);
    return (
       <>
          <Header
@@ -12,7 +22,7 @@ const Home = ({ items, fetchError }) => {
          />
          <About />
 
-         {!fetchError && <Products items={items} />}
+         {!fetchError && <Products />}
       </>
    );
 };

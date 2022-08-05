@@ -5,21 +5,24 @@ const SingleProduct = ({ items }) => {
    const [singleProduct, setSingleProduct] = useState({});
    let params = useParams();
    useEffect(() => {
-      //   function getItems(id, items) {
-      //      return items.find(item => item.id === id);
-      //   }
+      let matchingItem = items.find(
+         item => item.id === parseInt(params.invoiceId)
+      );
 
-      let matchItem = items.find(item => item.id === params.invoiceId);
-
-      console.log(matchItem);
-   }, []);
-
-   //    let itemID = getItems(parseInt(params.invoiceId));
+      if (matchingItem) {
+         setSingleProduct({ ...matchingItem });
+      }
+      //eslint-disable-next-line
+   }, [items, params.invoiceId]);
 
    return (
       <div>
          SingleProduct
-         {/* <div>{itemID.invoiceId}</div> */}
+         <h1>
+            {"id" in singleProduct && singleProduct ? (
+               <>Single product {singleProduct.id}</>
+            ) : null}
+         </h1>
       </div>
    );
 };
