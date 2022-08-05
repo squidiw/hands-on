@@ -9,17 +9,28 @@ const SingleProduct = ({ items }) => {
       //      return items.find(item => item.id === id);
       //   }
 
-      let matchItem = items.find(item => item.id === params.invoiceId);
 
-      console.log(matchItem);
-   }, []);
+    //  console.log({ params: params.invoiceId })
+
+      let matchingItem = items.find(item => item.id === parseInt(params.invoiceId))
+
+      if (matchingItem) {
+         setSingleProduct({...matchingItem})
+      }
+
+
+
+   }, [items]);
 
    //    let itemID = getItems(parseInt(params.invoiceId));
 
    return (
       <div>
-         SingleProduct
-         {/* <div>{itemID.invoiceId}</div> */}
+         {
+            "id" in singleProduct && singleProduct ? <>
+               Single product { singleProduct.id }
+            </> : null
+         }
       </div>
    );
 };
