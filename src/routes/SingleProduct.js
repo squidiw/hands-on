@@ -23,6 +23,28 @@ const SingleProduct = ({ items }) => {
                <>Single product {singleProduct.id}</>
             ) : null}
          </h1>
+
+    //  console.log({ params: params.invoiceId })
+
+      let matchingItem = items.find(item => item.id === parseInt(params.invoiceId))
+
+      if (matchingItem) {
+         setSingleProduct({...matchingItem})
+      }
+
+
+
+   }, [items]);
+
+   //    let itemID = getItems(parseInt(params.invoiceId));
+
+   return (
+      <div>
+         {
+            "id" in singleProduct && singleProduct ? <>
+               Single product { singleProduct.id }
+            </> : null
+         }
       </div>
    );
 };
