@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import AllProducts from "./routes/AllProducts";
 import SingleProduct from "./routes/SingleProduct";
+import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
+import BaseView from "./components/BaseView/BaseView";
 
 function App() {
    const API_URL = "http://localhost:3500/items";
@@ -31,26 +33,19 @@ function App() {
    return (
       <>
          <Routes>
-            <Route
-               path="/"
-               element={<Home items={items} fetchError={fetchError} />}
-            />
-            <Route element={<Navbar />}>
-               <Route path="products" element={<AllProducts items={items} />} />
+            <Route path="/" element={<BaseView />}>
                <Route
-                  path=":invoiceId"
-                  element={<SingleProduct items={items} />}
+                  index
+                  element={<Home items={items} fetchError={fetchError} />}
                />
+               <Route path="products" element={<ProductsContainer />}>
+                  <Route index element={<AllProducts items={items} />} />
+                  <Route
+                     path=":invoiceId"
+                     element={<SingleProduct items={items} />}
+                  />
+               </Route>
             </Route>
-            <Route
-               path="*"
-               element={
-                  <main style={{ padding: "1rem" }}>
-                     <p>There's nothing here! </p>
-                     <Link to="/">Go back to homepage</Link>
-                  </main>
-               }
-            />
          </Routes>
       </>
    );
