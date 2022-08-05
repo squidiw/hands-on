@@ -1,0 +1,25 @@
+{
+    "items":[
+        {
+            "id":1,
+            "title": "Product One",
+            "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget urna quis nunc consequat vestibulum id eu dolor.",
+            "img_url":"https://images.unsplash.com/photo-1586022784770-0aea59a51686?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+            "alt":"Product One"
+        },
+        {
+            "id":2,
+            "title":"Product Two",
+            "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget urna quis nunc consequat vestibulum id eu dolor.",
+            "img_url":"https://images.unsplash.com/photo-1544353774-40a52dfbacd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+            "alt":"Product Two"
+        },
+        {
+            "id":3,
+            "title":"Product Three",
+            "paragraph":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget urna quis nunc consequat vestibulum id eu dolor.",
+            "img_url":"https://images.unsplash.com/photo-1554104707-a76b270e4bbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+            "alt":"Product Three"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    background-color:#f6f1ed;
+    padding:0 16px;
+
+
+    &__img{
+        height:500px;
+        padding: 0 20px;
+    }
+}
